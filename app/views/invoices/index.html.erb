@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="row">
+  <div id="invoices" class="col-lg-8">
+    <h1>Invoices</h1>
+    <% if @invoices.present? %>
+      <%= render 'list', invoices: @invoices %>
+    <% else %>
+      <h4> There is no previous invoices available.</h4>
+    <% end %>
+  </div>
+  <div id="rewards" class="col-lg-4" style="border-left: 1px solid;">
+    <h1>Rewards</h1>
+    <% if @rewards.present? %>
+      <%= render 'reward_list', rewards: @rewards %>
+    <% end %>
+  </div>
+</div>
+<div class="mb-4">
+  <%= link_to "New invoice", new_invoice_path, class: "btn btn-primary" %>
+</div>
+<div class="loyalty-points  bg-light bg-gradient p-4">
+  <div class="text-uppercase fw-bold">
+    Total Earned Points: 
+    <span class="text-success"><%= user_loyalty_points %></span>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LoyaltyProgram</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="container">
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid" style="float: right;">
+          <% if user_signed_in? %>
+            <div class="home">
+              <%= link_to "Home", root_path %>
+            </div>
+
+            <div class="tier nav-nav ms-auto fw-bold">
+              <%= current_user.email %> | 
+              <span class="btn btn-success" style="cursor: auto;"> <%= current_user.tier.titleize %> </span>
+            </div>
+
+            <div class="sign-out nav-nav ms-4 text-danger">
+              <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+            </div>
+          <% end %>
+        </div>
+      </nav>
+
+    <%= yield %>
+  </body>
+</html>

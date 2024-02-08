@@ -1,0 +1,24 @@
+assign_loyalty_tier_to_user_job:
+  cron: "0 0 1 * *"
+  class: "AssignLoyaltyTierToUserJob"
+  queue: default
+
+birthday_month_reward_job:
+  cron: "0 0 1 * *"
+  class: "BirthdayMonthRewardJob"
+  queue: default
+
+expire_points_job:
+  cron: "0 0 1 1 *"
+  class: "ExpirePointsJob"
+  queue: default
+
+free_coffee_reward_job:
+  cron: "0 0 1 * *"
+  class: "FreeCoffeeRewardJob"
+  queue: default
+
+quaterly_bonus_job:
+  cron: "0 0 1 */3 *"
+  class: "QuaterlyBonusJob"
+  queue: default

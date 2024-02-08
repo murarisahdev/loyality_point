@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Invoice Date</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Foreign Investment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @invoices.each do |invoice| %>
+      <tr>
+        <th scope="row"><%= invoice.id %></th>
+        <td><%= invoice.invoice_date.strftime('%B %e, %Y') %></td>
+        <td><%= number_to_currency(invoice.amount) %></td>
+        <td><%= invoice.foreign_country_investment ? 'Yes' : 'No' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

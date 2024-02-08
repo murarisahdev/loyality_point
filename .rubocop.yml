@@ -1,0 +1,193 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'db/*'
+    - 'db/migrate/*'
+    - 'spec_OLD/**/*'
+    - 'bin/*'
+    - 'Gemfile'
+  TargetRubyVersion: 2.6.6
+
+Lint/MissingSuper:
+  Exclude:
+    - 'app/services/**/*'
+
+Metrics/ClassLength:
+  Max: 580
+
+Metrics/MethodLength:
+  Description: 'Avoid methods longer than `Max` lines of code.'
+  CountComments: false  # count full line comments?
+  Max: 55
+
+Metrics/ParameterLists:
+  Description: 'Avoid parameter lists longer than five parameters.'
+  Max: 5
+  CountKeywordArgs: true
+
+Metrics/BlockNesting:
+  Description: 'Avoid more than `Max` levels of nesting.'
+  Max: 4
+
+Metrics/BlockLength:
+  Max: 60
+  Exclude:
+    - spec/**/*
+    - config/routes.rb
+
+Layout/LineLength:
+  Description: 'Limit lines to 170 characters.'
+  Max: 170
+  Exclude:
+    - spec/**/*
+    - config/routes.rb
+
+Style/FormatStringToken:
+  Exclude:
+    - config/routes.rb
+
+Layout/ParameterAlignment:
+  Enabled: false
+
+# Align with the layout guide.
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineAssignmentLayout:
+  EnforcedStyle: same_line
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Metrics/AbcSize:
+  Max: 65
+
+Metrics/CyclomaticComplexity:
+  Max: 20
+
+Metrics/PerceivedComplexity:
+  Max: 20
+
+Metrics/ModuleLength:
+  Max: 110
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+Style/OptionalBooleanParameter:
+  Enabled: false
+
+# Multi-line method chaining should be done with leading dots.
+Layout/DotPosition:
+  Enabled: true
+
+Layout/SpaceInsideHashLiteralBraces:
+  Description: "Use spaces inside hash literal braces - or don't."
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/Encoding:
+  Enabled: false
+
+Style/Semicolon:
+  Description: "Don't use semicolons to terminate expressions."
+
+Style/SingleLineMethods:
+  Description: 'Avoid single-line methods.'
+  AllowIfMethodIsEmpty: true
+
+Style/RegexpLiteral:
+  Description: >
+                 Use %r for regular expressions matching more than
+                 `MaxSlashes` '/' characters.
+                 Use %r only for regular expressions matching more than
+                 `MaxSlashes` '/' character.
+  Enabled: false
+
+# Align with the style guide.
+Style/CollectionMethods:
+  PreferredMethods:
+    collect: 'map'
+    collect!: 'map!'
+    inject: 'reduce'
+    detect: 'find'
+    find_all: 'select'
+    find: detect
+    reduce: inject
+
+Style/StringLiterals:
+  EnforcedStyle: 'double_quotes'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/AndOr:
+  Enabled: false
+
+Style/Lambda:
+  Description: Use the new lambda literal syntax for single-line blocks.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#lambda-multi-line
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%':  ()
+    '%i': ()
+    '%q': ()
+    '%Q': ()
+    '%s': ()
+    '%w': ()
+    '%W': ()
+    '%x': ()
+
+# TrivialAccessors doesn't require exact name matches and doesn't allow
+# predicated methods by default.
+Style/TrivialAccessors:
+  ExactNameMatch: false
+  AllowPredicates: false
+  AllowedMethods:
+    - to_ary
+    - to_a
+    - to_c
+    - to_enum
+    - to_h
+    - to_hash
+    - to_i
+    - to_int
+    - to_io
+    - to_open
+    - to_path
+    - to_proc
+    - to_r
+    - to_regexp
+    - to_str
+    - to_s
+    - to_sym
+
+# Allow safe assignment in conditions.
+Style/ParenthesesAroundCondition:
+  AllowSafeAssignment: true
+
+# Checks formatting of special comments
+Style/CommentAnnotation:
+  Keywords:
+    - TODO
+    - FIXME
+    - OPTIMIZE
+    - HACK
+    - REVIEW
+
+# Allow safe assignment in conditions.
+Lint/AssignmentInCondition:
+  AllowSafeAssignment: true

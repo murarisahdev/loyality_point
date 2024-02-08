@@ -1,0 +1,33 @@
+<%= form_with(model: invoice) do |form| %>
+  <% if invoice.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+
+      <ul>
+        <% invoice.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+  <% end %>
+
+  <div class="row">
+    <div class="form-group mb-3">
+      <%= form.label :invoice_date, class: "form-label" %>
+      <%= form.date_field :invoice_date, class: "form-control" %>
+    </div>
+
+    <div class="form-group mb-3">
+      <%= form.label :amount, class: "form-label" %>
+      <%= form.number_field :amount, class: "form-control" %>
+    </div>
+
+    <div class="form-group mb-3">
+      <%= form.check_box :foreign_country_investment, class: "form-check-input" %>
+      <%= form.label :foreign_country_investment, class: "form-check-label" %>
+    </div>
+  </div>
+
+  <div>
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
